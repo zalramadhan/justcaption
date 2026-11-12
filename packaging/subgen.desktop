@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Subgen
+GenericName=Subtitle Generator
+Comment=Generator subtitle lokal (Whisper) dengan editor caption
+Exec="@BIN@" --app
+Icon=subgen
+Terminal=false
+Categories=AudioVideo;Video;
+Keywords=subtitle;caption;whisper;transcribe;
+StartupWMClass=subgen

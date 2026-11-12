@@ -1,0 +1,28 @@
+[package]
+name = "subgen"
+version = "0.2.0"
+edition = "2021"
+description = "Generator subtitle lokal (Whisper, GPU CUDA/Vulkan/Metal) + editor web"
+
+[features]
+default = []
+cuda = ["whisper-rs/cuda"]      # NVIDIA (GTX 1660 Super dkk.)
+vulkan = ["whisper-rs/vulkan"]  # alternatif tanpa CUDA Toolkit
+metal = ["whisper-rs/metal"]    # Apple Silicon
+
+[dependencies]
+anyhow = "1"
+axum = { version = "0.7", features = ["multipart"] }
+clap = { version = "4", features = ["derive"] }
+dirs = "5"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+tower = { version = "0.5", features = ["util"] }
+tower-http = { version = "0.6", features = ["fs"] }
+ureq = "2"
+whisper-rs = "0.14"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
